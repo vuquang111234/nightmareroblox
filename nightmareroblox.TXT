@@ -2,11 +2,11 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 _G.Primary = Color3.fromRGB(255, 255, 255)
 _G.Dark = Color3.fromRGB(0, 105, 148)
 ----------------------------------------------------------------------------------------------------------------------------------------
-_G.TieuDe = "Galaxy X Min Hub"
+_G.TieuDe = "nightmareroblox"
 _G.ThongBaoChoose = "Blox Fruits"
 
-_G.Discord = "https://discord.com/invite/3pPEwMKqjD"
-_G.YouTube = "https://www.youtube.com/@EW-OS-RAD"
+_G.Discord = "https://discord.gg/bhQmhKtQsG"
+_G.YouTube = "https://www.youtube.com/channel/UCC7M5MXxeEmZhBQgg3gceUw"
 notis = require(game.ReplicatedStorage:WaitForChild("Notification"))
 notis.new("<Color=Red>Thank You Use Galaxy X Min Hub<Color=/>"):Display()
 _G.SafeFarm = true
