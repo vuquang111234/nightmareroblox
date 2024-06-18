@@ -1,0 +1,143 @@
+const imageUrls = [
+  "Ảnh 1","Ảnh 2","Ảnh 3","Ảnh 4","Ảnh 5"
+  
+  
+];
+
+const NameNotify = '🔹Tên Notify';
+const DiscordLink = 'https://discord.gg/ms2BxVRs5r';
+const NameDiscord = 'nightmare';
+const NameUser = '@nightmareroblox141';
+
+const themeFullMoon = {
+    use: true,
+    name:"FULL MOON",
+    color:'14808320',
+    url:'https://discord.com/api/webhooks/1251361791330484285/Caj5CMSpB8AuaHowK4YK8azh_SgEB2qpgjEDatZ_V7nn-svbBxJBt62EfV1zCapok4SA'
+
+  }
+  const themeMirage = {
+    use: true,
+    name:"MIRAGE ISLAND",
+    color:'62877',
+    url:'https://discord.com/api/webhooks/1251361631037034549/zIxY_DB922ilctK4-O0G7ZS9A_9QUTSGkU7gkeFAGnP7cTG25RktRI3u-z09ULjDRFS-'
+  }
+  const themehaki = {
+    use: true,
+    name:"HAKI LEGENDARY",
+    color:'1310965',
+    url:'https://discord.com/api/webhooks/1251361237879750720/uIQ-RT7w3-siQ6Hn3DBMsyyY3_n9jV7NpjmCZT4oB3Oqkf1qP2HonKK0X2hhRgTUUdNV'
+  }
+  const themeSword = {
+    use: true,
+    name:"SWORD LEGENDARY",
+    color:'1310965',
+    url:'https://discord.com/api/webhooks/1251360405561802803/J8IbPcmneN0-tu6a-6Ok52Kr_OEWyt0louiBcIBNHgIif9yC0cZhPkYXTVTgUATQvH33'
+ }
+    const themeboss = {
+    use: true,
+    name:"BOSS SPAWN",
+    color:'1310965',
+    url:'https://discord.com/api/webhooks/1251361984918847508/SSnJvsWZQDoPiGpjwZdkU201WCH4hgHcY2TP-lDSLOh33J2U9rnVF9bCYMNe9NlhQJu3'
+}
+    const themefruit = {
+    use: true,
+    name:"FRUITS SPAWN",
+    color:'1310965',
+    url:'https://discord.com/api/webhooks/1251362141076717609/V0bUyhAYdJdAL_N00wtQjPRsGTP7Rv_xT6c4Xm3L3bROaXRfL7Hbdd1Nl9gtA41gkZ6h'
+}
+    const themekitsune = {
+    use: true,
+    name:"KITSUNE ISLAND",
+    color:'1310965',
+    url:'https://discord.com/api/webhooks/1251361677618839642/NcLZmsoqrJDZ4K3QqUZ27Svtl28pZX8hHhPTuaoh6nfgT004lXkVFe84EUqh6AK3GkHH'
+}
+const axios = require('axios');
+
+async function _S(theme, fieldsss) {
+  if (!theme.use) {
+    return '';
+  }
+
+  const randomImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+
+  const data = {
+    content: null,
+    embeds: [
+      {
+        title: theme.name,
+        description: `[Click To Join Discord](${DiscordLink})`,
+        color: theme.color,
+        fields: fieldsss,
+        author: { name: `${NameNotify}` },
+        image: { url: randomImageUrl },
+        footer: { text: `${NameUser} | ${NameDiscord}` }
+      }
+    ],
+    attachments: []
+  };
+
+  try {
+    const response = await axios.post(theme.url, data);
+    if (response.status === 204) {
+      console.log('[SYSTEM] Check Speed : ', theme.name);
+    } else {
+      console.log('Http OutPut : ' + response.status);
+    }
+  } catch (error) {
+    console.log('[SYSTEM] Error OutPut : ' + error.message);
+  }
+}
+
+const { Client } = require('discord.js-selfbot-v13');
+const DiscordBot = new Client();
+
+DiscordBot.on('ready', async () => {
+  console.log(`Console - System log!`);
+});
+
+DiscordBot.on('messageCreate',async (message) => {
+if (message.channelId == <#1251359155068076175>) {
+    if (message.embeds) {
+    const data = message.embeds[0].fields;
+    _S(themeMirage,data)
+ }
+} else if (message.channelId == <#1251359372395679817>) {
+    if (message.embeds) {
+    const data = message.embeds[0].fields;
+    _S(themeFullMoon,data)
+ }
+} else if (message.channelId == <#1251358082521497631>) {
+    if (message.embeds) {
+    const data = message.embeds[0].fields;
+    _S(themeSword,data)
+ }
+} else if (message.channelId == Gắn Id Theme Ở Đây) {
+    if (message.embeds) {
+    const data = message.embeds[0].fields;
+    _S(themehaki,data)
+ }
+} else if (message.channelId == <#1251359460476194896>) {
+    if (message.embeds) {
+    const data = message.embeds[0].fields;
+    _S(themeboss,data)
+ }
+} else if (message.channelId ==<#1251359605120827486>) {
+    if (message.embeds) {
+    const data = message.embeds[0].fields;
+    _S(themefruit,data)
+ }
+} else if (message.channelId ==<#1251359211208839238> ) {
+    if (message.embeds) {
+    const data = message.embeds[0].fields;
+    _S(themekitsune,data)
+    }
+  } 
+});
+
+const token = 'https://discord.gg/6jNCdj6AGn';
+
+DiscordBot.login(token);
+
+
+
